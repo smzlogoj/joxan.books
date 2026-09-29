@@ -17,6 +17,7 @@ collections:
     label_singular: Libro
     folder: src/content/books
     create: true
+    delete: true
     format: yaml-frontmatter
     extension: md
     slug: '{{slug}}'
