@@ -38,6 +38,17 @@ const coverUrl = isbn
         </svg>
         <span>Volver a la estantería</span>
       </a>
+
+      <a 
+        href={`/admin/#/collections/books/entries/${book.id}`}
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition-colors"
+        title="Editar esta reseña en el CMS"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+        <span>Editar reseña</span>
+      </a>
     </div>
 
     <!-- Book Hero / Technical Specs -->

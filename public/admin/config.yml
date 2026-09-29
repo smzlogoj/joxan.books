@@ -1,0 +1,59 @@
+# Configuración de Sveltia CMS para joxan.books
+backend:
+  name: github
+  repo: joxan/joxan.books
+  branch: main
+
+# Soporte para subida de medios o imágenes locales
+media_folder: public/images
+public_folder: /images
+
+# Idioma de la interfaz del CMS
+locale: es
+
+collections:
+  - name: books
+    label: Libros y Reseñas
+    label_singular: Libro
+    folder: src/content/books
+    create: true
+    format: yaml-frontmatter
+    extension: md
+    slug: '{{slug}}'
+    summary: '{{title}} — {{author}} ({{rating}}/5)'
+    sortable_fields:
+      - title
+      - author
+      - rating
+      - dateRead
+    view_filters:
+      - label: Leídos
+        field: status
+        pattern: read
+      - label: Leyendo actualmente
+        field: status
+        pattern: currently-reading
+      - label: Abandonados (DNF)
+        field: status
+        pattern: did-not-finish
+    fields:
+      - { label: 'Título del libro', name: 'title', widget: 'string', required: true }
+      - { label: 'Autor', name: 'author', widget: 'string', required: true }
+      - { label: 'ISBN-13', name: 'isbn13', widget: 'string', required: false, default: '' }
+      - { label: 'ISBN-10', name: 'isbn', widget: 'string', required: false, default: '' }
+      - { label: 'Editorial', name: 'publisher', widget: 'string', required: false, default: '' }
+      - { label: 'Páginas', name: 'pages', widget: 'number', value_type: 'int', required: false, default: 0 }
+      - { label: 'Año de publicación', name: 'year', widget: 'string', required: false, default: '' }
+      - { label: 'Fecha de lectura (YYYY/MM/DD)', name: 'dateRead', widget: 'string', required: false, default: '' }
+      - label: 'Estado de lectura'
+        name: 'status'
+        widget: 'select'
+        options:
+          - { label: 'Leído', value: 'read' }
+          - { label: 'Leyendo actualmente', value: 'currently-reading' }
+          - { label: 'Abandonado (DNF)', value: 'did-not-finish' }
+        default: 'read'
+      - { label: 'Puntuación (0 a 5)', name: 'rating', widget: 'number', value_type: 'int', min: 0, max: 5, default: 0 }
+      - { label: 'Contenido generado por IA', name: 'aiGenerated', widget: 'boolean', default: true }
+      - { label: 'Cita destacada', name: 'favoriteQuote', widget: 'text', required: false, default: '' }
+      - { label: 'Reseña literaria y notas', name: 'body', widget: 'markdown', required: false }
