@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "¡Dios mío! ¡Un minuto entero de felicidad! ¿Es acaso poco para toda una vida humana?"
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### Impresiones y Sensibilidad
 *Noches blancas* es una de las obras más líricas y transparentes del joven Dostoevsky. Ambientada en el crepúsculo interminable de las noches estivales de San Petersburgo, narra el encuentro fortuito a orillas del canal entre un joven solitario y soñador y Nástenka, una mujer que aguarda desesperadamente el regreso de su prometido.

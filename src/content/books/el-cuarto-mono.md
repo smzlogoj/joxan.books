@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "No veas el mal, no oigas el mal, no hables del mal... y no hagas el mal."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### Un Inicio de Trilogía Modélico
 El inspector Sam Porter investiga la muerte de un peatón atropellado por un autobús. En su bolsillo hallan la firma inconfundible del asesino en serie 4MK (El Asesino del Cuarto Mono): una caja blanca con una oreja amputada dentro. El juego contra el reloj comienza: una nueva víctima sigue secuestrada y solo tienen unas horas para encontrarla.

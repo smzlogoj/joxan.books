@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "Pensé que el corazón de las personas era como un pozo profundo. Nadie sabe qué hay en el fondo."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### Estado de Lectura
 *Novela actualmente en curso.* Una inmersión en la faceta más íntima, jazzística y nostálgica del universo de Haruki Murakami.

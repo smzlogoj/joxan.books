@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "El destino de la patria no se decide en los despachos ministeriales, sino en el corazón del soldado que sostiene el fusil en la trinchera."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### La Épica del Frente Oriental
 Precursora de la legendaria *Vida y destino*, esta monumental novela de Vasily Grossman es una de las obras más ambiciosas escritas sobre la Gran Guerra Patria y los albores de la batalla de Stalingrado. Con más de 1.000 páginas, Grossman despliega un fresco humano colosal que recuerda la vastedad de Tolstói en *Guerra y paz*.

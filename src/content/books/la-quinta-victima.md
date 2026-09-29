@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "La muerte no es el final del juego, detective. A veces es únicamente el movimiento de apertura."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### Ritmo Implacable
 Secuela directa del arrollador éxito de *El cuarto mono*, J.D. Barker demuestra que conoce a la perfección las dinámicas del thriller policíaco contemporáneo. Ambientado en un Chicago asolado por una tormenta de nieve récord, la aparición de cadáveres congelados en el lago Michigan reabre las heridas de la brigada de homicidios.

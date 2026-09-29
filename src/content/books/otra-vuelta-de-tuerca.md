@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "No había nada en el mundo que me aterrorizara tanto como mi propia certeza."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### La Perfección de la Ambigüedad
 Henry James sienta las bases del terror psicológico moderno en una mansión victoriana aislada. Una joven institutriz asume el cuidado de dos niños de apariencia angelical, Miles y Flora, para pronto sospechar que las presencias de los antiguos sirvientes fallecidos los acechan.

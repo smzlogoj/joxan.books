@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "Una mañana, al despertar de un sueño intranquilo, Gregorio Samsa se encontró sobre su cama transformado en un monstruoso insecto."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### La Obra Canónica de la Alienación
 Pocas frases iniciales en la historia de la literatura encierran tanta potencia como la de Kafka en *La metamorfosis*. Lo más asombroso del relato no es la transformación física de Gregorio, sino su reacción inmediata: la angustia por no llegar a tiempo a su turno de trabajo y las reprimendas que sufrirá por parte de su jefe.

@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "Timshel: Tú puedes. La mayor palabra del mundo. No dice 'debes' ni 'harás', sino 'puedes'. El hombre tiene la elección."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### Estado de Lectura
 *Lectura monumental en progreso.* Una de las cumbres indiscutibles de la literatura norteamericana del siglo XX.

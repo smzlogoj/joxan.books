@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "El hombre no es verdaderamente uno, sino verdaderamente dos."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### La Dualidad Arquetípica
 Robert Louis Stevenson inmortalizó en esta breve novela victoriana una de las alegorías psicológicas más universales de la modernidad. A través de la investigación del abogado Utterson en la niebla londinense, se desvela el pacto siniestro entre el respetable y filantrópico Dr. Henry Jekyll y el repulsivo y desinhibido Edward Hyde.

@@ -13,7 +13,7 @@ aiGenerated: true
 favoriteQuote: "Cualquiera que se ponga una camisa roja en esta nave tiene una esperanza de vida de unas cuarenta y ocho horas."
 ---
 
-> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente desde Keystatic o directamente en este archivo Markdown.
+> 🤖 **Nota de autoría**: Esta reseña y análisis crítico han sido generados por una Inteligencia Artificial como propuesta inicial para la web personal, estructurados a partir de los datos registrados en tu biblioteca de Goodreads. Puedes editarlos libremente directamente en este archivo Markdown.
 
 ### Premisa y Tono
 *Redshirts* es una parodia directa y autoconsciente de los clichés de la ciencia ficción televisiva, en particular de los tripulantes anónimos de uniforme rojo en *Star Trek* que invariablemente morían al pisar un planeta desconocido. John Scalzi utiliza el humor absurdo para desgranar cómo los personajes secundarios toman conciencia de que forman parte de un guion melodramático ajeno a su voluntad.
