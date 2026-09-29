@@ -9,6 +9,7 @@ year: "2026"
 dateRead: "2026/08/08"
 status: "read"
 rating: 3
+published: true
 aiGenerated: true
 favoriteQuote: "La memoria no siempre nos devuelve la verdad exacta, sino la versión con la que podemos seguir viviendo cada día."
 ---

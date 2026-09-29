@@ -9,6 +9,7 @@ year: "1915"
 dateRead: "2026/08/30"
 status: "read"
 rating: 5
+published: true
 aiGenerated: true
 favoriteQuote: "Una mañana, al despertar de un sueño intranquilo, Gregorio Samsa se encontró sobre su cama transformado en un monstruoso insecto."
 ---

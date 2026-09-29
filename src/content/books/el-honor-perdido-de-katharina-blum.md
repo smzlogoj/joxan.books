@@ -9,6 +9,7 @@ year: "1974"
 dateRead: "2026/08/26"
 status: "read"
 rating: 3
+published: true
 aiGenerated: true
 favoriteQuote: "Las palabras impresas pueden matar con tanta eficacia como una bala, pero sin dejar pólvora en las manos del asesino."
 ---

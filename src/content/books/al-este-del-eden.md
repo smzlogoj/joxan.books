@@ -9,6 +9,7 @@ year: "1952"
 dateRead: ""
 status: "currently-reading"
 rating: 0
+published: true
 aiGenerated: true
 favoriteQuote: "Timshel: Tú puedes. La mayor palabra del mundo. No dice 'debes' ni 'harás', sino 'puedes'. El hombre tiene la elección."
 ---

@@ -17,7 +17,7 @@ collections:
     label_singular: Libro
     folder: src/content/books
     create: true
-    delete: true
+    delete: false
     format: yaml-frontmatter
     extension: md
     slug: '{{slug}}'
@@ -37,7 +37,11 @@ collections:
       - label: Abandonados (DNF)
         field: status
         pattern: did-not-finish
+      - label: Borradores / Ocultos
+        field: published
+        pattern: false
     fields:
+      - { label: 'Publicado (visible en la web)', name: 'published', widget: 'boolean', default: true }
       - { label: 'Título del libro', name: 'title', widget: 'string', required: true }
       - { label: 'Autor', name: 'author', widget: 'string', required: true }
       - { label: 'ISBN-13', name: 'isbn13', widget: 'string', required: false, default: '' }

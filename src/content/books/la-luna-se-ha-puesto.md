@@ -9,6 +9,7 @@ year: "1942"
 dateRead: "2026/08/24"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "Los hombres libres no pueden ser gobernados por la fuerza, porque la libertad no es una concesión, es un estado del alma."
 ---

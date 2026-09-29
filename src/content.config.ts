@@ -14,6 +14,7 @@ const books = defineCollection({
     dateRead: z.string().optional().default(''),
     status: z.enum(['read', 'currently-reading', 'did-not-finish']).default('read'),
     rating: z.number().default(0),
+    published: z.boolean().default(true),
     aiGenerated: z.boolean().default(true),
     favoriteQuote: z.string().optional().default(''),
   }),

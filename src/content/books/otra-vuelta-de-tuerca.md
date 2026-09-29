@@ -9,6 +9,7 @@ year: "1898"
 dateRead: "2026/09/02"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "No había nada en el mundo que me aterrorizara tanto como mi propia certeza."
 ---

@@ -9,6 +9,7 @@ year: "2017"
 dateRead: "2026/08/31"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "No veas el mal, no oigas el mal, no hables del mal... y no hagas el mal."
 ---

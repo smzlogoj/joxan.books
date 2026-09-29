@@ -9,6 +9,7 @@ year: "1848"
 dateRead: "2026/09/20"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "¡Dios mío! ¡Un minuto entero de felicidad! ¿Es acaso poco para toda una vida humana?"
 ---

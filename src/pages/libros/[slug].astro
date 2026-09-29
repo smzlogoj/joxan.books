@@ -5,7 +5,7 @@ import RatingStars from '../../components/RatingStars.astro';
 import BookStatusBadge from '../../components/BookStatusBadge.astro';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
+  const books = (await getCollection('books')).filter(b => b.data.published !== false);
   return books.map((book) => ({
     params: { slug: book.id },
     props: { book },

@@ -9,6 +9,7 @@ year: "2006"
 dateRead: "2026/08/27"
 status: "read"
 rating: 5
+published: true
 aiGenerated: true
 favoriteQuote: "Sabía que el niño era su garantía. Si él no era la palabra de Dios, Dios no había hablado nunca."
 ---

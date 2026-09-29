@@ -9,6 +9,7 @@ year: "2009"
 dateRead: "2026/08/06"
 status: "read"
 rating: 5
+published: true
 aiGenerated: true
 favoriteQuote: "En la guerra moderna, el heroísmo suele ser simplemente la decisión de seguir avanzando cuando todas las fibras del cuerpo gritan que te refugies."
 ---

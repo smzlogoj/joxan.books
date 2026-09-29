@@ -9,6 +9,7 @@ year: "1992"
 dateRead: ""
 status: "currently-reading"
 rating: 0
+published: true
 aiGenerated: true
 favoriteQuote: "Pensé que el corazón de las personas era como un pozo profundo. Nadie sabe qué hay en el fondo."
 ---

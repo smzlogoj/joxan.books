@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BookCard from '../components/BookCard.astro';
 import { getCollection } from 'astro:content';
 
-const allBooks = await getCollection('books');
+const allBooks = (await getCollection('books')).filter(b => b.data.published !== false);
 
 // Sort: Currently reading first, then by dateRead descending, then title
 const sortedBooks = allBooks.sort((a, b) => {

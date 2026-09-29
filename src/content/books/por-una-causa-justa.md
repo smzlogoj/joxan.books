@@ -9,6 +9,7 @@ year: "1952"
 dateRead: "2026/08/29"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "El destino de la patria no se decide en los despachos ministeriales, sino en el corazón del soldado que sostiene el fusil en la trinchera."
 ---

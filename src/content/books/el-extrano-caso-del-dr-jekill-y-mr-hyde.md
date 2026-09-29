@@ -9,6 +9,7 @@ year: "1886"
 dateRead: "2026/08/20"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "El hombre no es verdaderamente uno, sino verdaderamente dos."
 ---

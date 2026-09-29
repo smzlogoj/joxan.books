@@ -9,6 +9,7 @@ year: "1947"
 dateRead: "2026/08/17"
 status: "read"
 rating: 5
+published: true
 aiGenerated: true
 favoriteQuote: "Una perla de gran precio es como un sueño oscuro: despierta la codicia en los ojos de quien la mira."
 ---

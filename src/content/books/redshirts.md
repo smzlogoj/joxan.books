@@ -9,6 +9,7 @@ year: "2012"
 dateRead: ""
 status: "did-not-finish"
 rating: 0
+published: true
 aiGenerated: true
 favoriteQuote: "Cualquiera que se ponga una camisa roja en esta nave tiene una esperanza de vida de unas cuarenta y ocho horas."
 ---

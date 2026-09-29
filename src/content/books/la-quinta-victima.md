@@ -9,6 +9,7 @@ year: "2018"
 dateRead: "2026/09/07"
 status: "read"
 rating: 4
+published: true
 aiGenerated: true
 favoriteQuote: "La muerte no es el final del juego, detective. A veces es únicamente el movimiento de apertura."
 ---
