@@ -11,7 +11,7 @@
     <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
   </head>
   <body>
-    <!-- Sveltia CMS -->
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <!-- Sveltia CMS cargado directamente como script independiente sin procesamiento de Vite -->
+    <script is:inline data-cfasync="false" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   </body>
 </html>
