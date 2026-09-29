@@ -1,7 +1,7 @@
 # Configuración de Sveltia CMS para joxan.books
 backend:
   name: github
-  repo: joxan/joxan.books
+  repo: smzlogoj/joxan.books
   branch: main
 
 # Soporte para subida de medios o imágenes locales
