@@ -1,0 +1,22 @@
+---
+interface Props {
+  status: 'read' | 'currently-reading' | 'did-not-finish' | string;
+}
+
+const { status } = Astro.props;
+
+let label = 'Leído';
+let badgeClasses = 'bg-slate-900/80 text-white';
+
+if (status === 'currently-reading') {
+  label = 'Leyendo';
+  badgeClasses = 'bg-blue-600 text-white';
+} else if (status === 'did-not-finish') {
+  label = 'Abandonado';
+  badgeClasses = 'bg-amber-600/90 text-white';
+}
+---
+
+<span class={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider backdrop-blur-md shadow-sm ${badgeClasses}`}>
+  {label}
+</span>

@@ -1,0 +1,91 @@
+---
+import RatingStars from './RatingStars.astro';
+import BookStatusBadge from './BookStatusBadge.astro';
+
+interface Props {
+  id: string;
+  book: {
+    title: string;
+    author: string;
+    isbn13?: string;
+    isbn?: string;
+    publisher?: string;
+    pages?: number;
+    year?: string;
+    dateRead?: string;
+    status: 'read' | 'currently-reading' | 'did-not-finish' | string;
+    rating: number;
+    aiGenerated?: boolean;
+    favoriteQuote?: string;
+  };
+}
+
+const { id, book } = Astro.props;
+const isbn = book.isbn13 || book.isbn;
+const coverUrl = isbn 
+  ? `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false`
+  : null;
+---
+
+<a 
+  href={`/libros/${id}`}
+  class="group flex flex-col bg-white rounded-xl p-3.5 border border-slate-200/90 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-slate-300 transition-all duration-200"
+  data-title={book.title.toLowerCase()}
+  data-author={book.author.toLowerCase()}
+  data-status={book.status}
+  data-rating={book.rating}
+>
+  <!-- Cover Container -->
+  <div class="relative aspect-[2/3] w-full rounded-lg overflow-hidden bg-slate-100 mb-3 border border-slate-100 flex items-center justify-center">
+    
+    <!-- Badges -->
+    <div class="absolute top-2 left-2 z-10">
+      <BookStatusBadge status={book.status} />
+    </div>
+
+    {book.aiGenerated && (
+      <span class="absolute top-2 right-2 z-10 px-1.5 py-0.5 rounded bg-amber-500/90 text-white text-[9px] font-bold tracking-tight shadow-sm" title="Reseña generada por IA">
+        🤖 IA
+      </span>
+    )}
+
+    <!-- Book Cover Image with Fallback -->
+    {coverUrl ? (
+      <img 
+        src={coverUrl} 
+        alt={`Portada de ${book.title}`}
+        loading="lazy"
+        class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+    ) : null}
+
+    <!-- Fallback Graphic Cover -->
+    <div 
+      class="w-full h-full p-4 flex flex-col justify-center items-center text-center bg-gradient-to-br from-slate-800 to-slate-950 text-white"
+      style={coverUrl ? "display: none;" : "display: flex;"}
+    >
+      <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-2">Libro</span>
+      <h4 class="font-bold text-sm leading-snug line-clamp-3 mb-1 text-slate-100">{book.title}</h4>
+      <p class="text-[11px] text-slate-300 line-clamp-1">{book.author}</p>
+    </div>
+  </div>
+
+  <!-- Book Info -->
+  <div class="flex-1 flex flex-col">
+    <h3 class="font-bold text-sm text-slate-900 leading-snug line-clamp-2 mb-1 group-hover:text-blue-600 transition-colors" title={book.title}>
+      {book.title}
+    </h3>
+    <p class="text-xs text-slate-500 line-clamp-1 mb-2 font-medium">
+      {book.author}
+    </p>
+
+    <!-- Bottom metadata -->
+    <div class="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+      <span class="text-slate-400 font-medium">
+        {book.year ? book.year : ''}{book.pages ? ` · ${book.pages}p` : ''}
+      </span>
+      <RatingStars rating={book.rating} />
+    </div>
+  </div>
+</a>

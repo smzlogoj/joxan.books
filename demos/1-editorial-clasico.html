@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 1 · Editorial Clásico / Librería Cálida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAF6F0;
+            --surface-color: #FFFFFF;
+            --text-color: #2D2522;
+            --text-muted: #736762;
+            --border-color: #E6DDD4;
+            --accent: #8E3B27;
+            --accent-contrast: #FFFFFF;
+            --accent-soft: #F4EAE2;
+            --header-bg: rgba(250, 246, 240, 0.9);
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Lora', Georgia, serif;
+            --font-ui: 'Plus Jakarta Sans', sans-serif;
+            --book-shadow: 0 10px 25px -5px rgba(60, 40, 30, 0.15), 0 8px 10px -6px rgba(60, 40, 30, 0.1);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+        .font-ui { font-family: var(--font-ui); }
+        .font-title { font-family: var(--font-title); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        /* Hero */
+        .hero {
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: radial-gradient(circle at 50% 20%, #FFFDF9 0%, var(--bg-color) 70%);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            font-style: italic;
+        }
+        .stats-pill-group {
+            display: inline-flex;
+            gap: 1.5rem;
+            background: var(--surface-color);
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+        }
+        .stats-pill-group span strong { color: var(--accent); }
+
+        /* Filters */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 2rem 0 1.5rem;
+        }
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            font-family: var(--font-ui);
+        }
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .search-input {
+            font-family: var(--font-ui);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--surface-color);
+            font-size: 0.85rem;
+            min-width: 240px;
+            outline: none;
+        }
+        .search-input:focus { border-color: var(--accent); }
+
+        /* Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 2rem 1.75rem;
+            padding-bottom: 4rem;
+        }
+        .book-card {
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+        }
+        .cover-wrap {
+            position: relative;
+            aspect-ratio: 2 / 3;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--book-shadow);
+            background: #E8E0D7;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cover-wrap::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 12px;
+            background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0.15) 40%, rgba(0,0,0,0.05) 100%);
+            pointer-events: none;
+        }
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cover-fallback {
+            padding: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #7C3E2F 0%, #4A2219 100%);
+            color: #FFF;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: var(--font-title);
+        }
+        .cover-fallback .fallback-title { font-size: 1rem; margin-bottom: 0.5rem; }
+        .cover-fallback .fallback-author { font-size: 0.75rem; opacity: 0.8; font-family: var(--font-ui); }
+        
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .badge-reading { background: #2E5A44; color: #FFF; }
+        .badge-dnf { background: #8C7B75; color: #FFF; }
+
+        .book-title {
+            font-family: var(--font-title);
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .book-author {
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .book-rating {
+            color: #C07028;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Modal Reseña */
+        .modal-backdrop {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30, 22, 18, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .modal-card {
+            background: var(--surface-color);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .modal-body {
+            padding: 2.5rem;
+        }
+        .review-quote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1.25rem;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #4A3B32;
+            margin: 1.5rem 0;
+            background: var(--accent-soft);
+            padding: 1rem 1.25rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .spoiler-box {
+            background: #F5EFEB;
+            border: 1px dashed #CBB8AD;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+        }
+        .spoiler-box summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 0.75rem;
+            background: var(--accent-soft);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <div style="position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); background: var(--header-bg); padding: 0.6rem 1.5rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; font-family: system-ui, sans-serif;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <a href="index.html" style="font-weight: 700; color: var(--text-color); text-decoration: none; display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Galería de Estilos</span>
+            </a>
+            <span style="opacity: 0.4;">|</span>
+            <span style="opacity: 0.7;">Viendo: <strong>Editorial Clásico</strong></span>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+            <a href="1-editorial-clasico.html" style="text-decoration: none; padding: 0.35rem 0.75rem; border-radius: 9999px; font-weight: 500; font-size: 0.8rem; background: var(--accent); color: var(--accent-contrast);">1. Clásico Cálido</a>
+            <a href="2-minimalista-nordico.html" style="text-decoration: none; padding: 0.35rem 0.75rem; border-radius: 9999px; font-weight: 500; font-size: 0.8rem; background: transparent; color: var(--text-muted); border: 1px solid var(--border-color);">2. Minimalista Nórdico</a>
+            <a href="3-nocturno-elegante.html" style="text-decoration: none; padding: 0.35rem 0.75rem; border-radius: 9999px; font-weight: 500; font-size: 0.8rem; background: transparent; color: var(--text-muted); border: 1px solid var(--border-color);">3. Nocturno Studio</a>
+        </div>
+    </div>
+    
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="font-title">Ex Libris · Joxan</h1>
+            <p>Cuaderno de lecturas, impresiones críticas y estantería personal.</p>
+            <div class="stats-pill-group">
+                <span>📚 <strong>17</strong> libros catalogados</span>
+                <span>⏱️ <strong>2</strong> en lectura actual</span>
+                <span>⭐ <strong>4.2</strong> valoración media</span>
+                <span>📖 <strong>5.986</strong> páginas</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="filter-bar">
+            <div class="tabs" id="tabs">
+                <button class="tab-btn active" onclick="filterBooks('all', this)">Todos (17)</button>
+                <button class="tab-btn" onclick="filterBooks('read', this)">Leídos (14)</button>
+                <button class="tab-btn" onclick="filterBooks('currently-reading', this)">Leyendo ahora (2)</button>
+                <button class="tab-btn" onclick="filterBooks('top', this)">5 Estrellas (5)</button>
+                <button class="tab-btn" onclick="filterBooks('did-not-finish', this)">Abandonados (1)</button>
+            </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por título o autor..." onkeyup="searchBooks()">
+        </div>
+
+        <div class="books-grid" id="booksGrid"></div>
+    </main>
+
+    <!-- Modal Reseña Interactiva -->
+    <div class="modal-backdrop" id="reviewModal" onclick="closeModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-body" id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const books = [{"title": "Redshirts", "author": "John Scalzi", "isbn13": "9788445001905", "isbn": "8445001906", "rating": 0, "status": "did-not-finish", "pages": "348", "year": "2012", "dateRead": "", "publisher": "Minotauro"}, {"title": "Al sur de la frontera, al oeste del Sol", "author": "Haruki Murakami", "isbn13": "9788483835036", "isbn": "8483835037", "rating": 0, "status": "currently-reading", "pages": "270", "year": "1992", "dateRead": "", "publisher": "Maxi-Tusquets"}, {"title": "Al este del Edén", "author": "John Steinbeck", "isbn13": "9788490661444", "isbn": "8490661448", "rating": 0, "status": "currently-reading", "pages": "688", "year": "1952", "dateRead": "", "publisher": "Austral"}, {"title": "Noches blancas y otros relatos", "author": "Fyodor Dostoevsky", "isbn13": "9788420665665", "isbn": "8420665665", "rating": 4, "status": "read", "pages": "223", "year": "1848", "dateRead": "2026/09/20", "publisher": "Alianza Editorial"}, {"title": "1984", "author": "George Orwell", "isbn13": "9791387788452", "isbn": "", "rating": 5, "status": "read", "pages": "320", "year": "1949", "dateRead": "2026/09/13", "publisher": "Newton Compton Editores"}, {"title": "La quinta víctima (4MK Thriller, #2)", "author": "J.D. Barker", "isbn13": "9788423357581", "isbn": "8423357589", "rating": 4, "status": "read", "pages": "608", "year": "2018", "dateRead": "2026/09/07", "publisher": "Booket"}, {"title": "Otra vuelta de tuerca", "author": "Henry James", "isbn13": "9788481302189", "isbn": "848130218", "rating": 4, "status": "read", "pages": "119", "year": "1898", "dateRead": "2026/09/02", "publisher": "Bibliotex"}, {"title": "El cuarto mono (El cuarto mono, #1)", "author": "J.D. Barker", "isbn13": "9788423355655", "isbn": "8423355659", "rating": 4, "status": "read", "pages": "560", "year": "2017", "dateRead": "2026/08/31", "publisher": "Booket"}, {"title": "La metamorfosis", "author": "Franz Kafka", "isbn13": "9788420651361", "isbn": "8420651362", "rating": 5, "status": "read", "pages": "125", "year": "1915", "dateRead": "2026/08/30", "publisher": "Alianza Editorial"}, {"title": "Por una causa justa (Estalingrado, #1)", "author": "Vasily Grossman", "isbn13": "9788481099119", "isbn": "8481099112", "rating": 4, "status": "read", "pages": "1100", "year": "1952", "dateRead": "2026/08/29", "publisher": "Galaxia Gutenberg"}, {"title": "La carretera", "author": "Cormac McCarthy", "isbn13": "9788439741008", "isbn": "8439741006", "rating": 5, "status": "read", "pages": "216", "year": "2006", "dateRead": "2026/08/27", "publisher": "Literatura Random House"}, {"title": "El honor perdido de Katharina Blum", "author": "Heinrich Böll", "isbn13": "9788481301649", "isbn": "8481301647", "rating": 3, "status": "read", "pages": "120", "year": "1974", "dateRead": "2026/08/26", "publisher": "Colección Millenium (El Mundo)"}, {"title": "La luna se ha puesto", "author": "John Steinbeck", "isbn13": "9788435021876", "isbn": "8435021874", "rating": 4, "status": "read", "pages": "160", "year": "1942", "dateRead": "2026/08/24", "publisher": "Editora y Distribuidora Hispano Americana, S.A."}, {"title": "El extraño caso del Dr. Jekill y Mr. Hyde", "author": "Robert Louis Stevenson", "isbn13": "9789871784073", "isbn": "9871784074", "rating": 4, "status": "read", "pages": "0", "year": "1886", "dateRead": "2026/08/20", "publisher": "SALIM"}, {"title": "La perla", "author": "John Steinbeck", "isbn13": "9788431634797", "isbn": "8431634790", "rating": 5, "status": "read", "pages": "160", "year": "1947", "dateRead": "2026/08/17", "publisher": "Editorial Vicens Vives"}, {"title": "Maite", "author": "Fernando Aramburu", "isbn13": "9788411077484", "isbn": "8411077489", "rating": 3, "status": "read", "pages": "344", "year": "2026", "dateRead": "2026/08/08", "publisher": "Tusquets Editores S.A."}, {"title": "El Día D: La batalla de Normandía", "author": "Antony Beevor", "isbn13": "9788498920208", "isbn": "8498920205", "rating": 5, "status": "read", "pages": "784", "year": "2009", "dateRead": "2026/08/06", "publisher": "Editorial Crítica"}];
+
+        function renderStars(rating) {
+            if (!rating || rating === 0) return '<span style="color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-ui)">Sin puntuar</span>';
+            const full = '★'.repeat(Math.floor(rating));
+            const empty = '☆'.repeat(5 - Math.floor(rating));
+            return `<span class="book-rating">${full}${empty}</span>`;
+        }
+
+        function getCoverHtml(book) {
+            const isbn = book.isbn13 || book.isbn;
+            if (isbn) {
+                return `<img src="https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false" 
+                             class="cover-img" 
+                             alt="${book.title}" 
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="cover-fallback" style="display:none;">
+                            <div class="fallback-title">${book.title}</div>
+                            <div class="fallback-author">${book.author}</div>
+                        </div>`;
+            }
+            return `<div class="cover-fallback">
+                        <div class="fallback-title">${book.title}</div>
+                        <div class="fallback-author">${book.author}</div>
+                    </div>`;
+        }
+
+        function renderBooks(list) {
+            const grid = document.getElementById('booksGrid');
+            grid.innerHTML = list.map((b, idx) => {
+                let badge = '';
+                if (b.status === 'currently-reading') badge = '<span class="badge badge-reading">Leyendo</span>';
+                if (b.status === 'did-not-finish') badge = '<span class="badge badge-dnf">DNF</span>';
+
+                return `
+                <div class="book-card" onclick="openReview(${b.index})">
+                    <div class="cover-wrap">
+                        ${badge}
+                        ${getCoverHtml(b)}
+                    </div>
+                    <h3 class="book-title" title="${b.title}">${b.title}</h3>
+                    <p class="book-author">${b.author}</p>
+                    <div>${renderStars(b.rating)}</div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Attach original indexes
+        books.forEach((b, i) => b.index = i);
+
+        let currentFilter = 'all';
+
+        function filterBooks(type, btn) {
+            currentFilter = type;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            let filtered = books;
+            if (type === 'read') filtered = books.filter(b => b.status === 'read');
+            else if (type === 'currently-reading') filtered = books.filter(b => b.status === 'currently-reading');
+            else if (type === 'did-not-finish') filtered = books.filter(b => b.status === 'did-not-finish');
+            else if (type === 'top') filtered = books.filter(b => b.rating === 5);
+
+            renderBooks(filtered);
+        }
+
+        function searchBooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = books.filter(b => 
+                b.title.toLowerCase().includes(query) || 
+                b.author.toLowerCase().includes(query)
+            );
+            renderBooks(filtered);
+        }
+
+        function openReview(index) {
+            const b = books[index];
+            const isbn = b.isbn13 || b.isbn;
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div style="display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <div style="width: 140px; aspect-ratio: 2/3; flex-shrink: 0; border-radius: 6px; overflow: hidden; box-shadow: var(--book-shadow);">
+                        <img src="https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://placehold.co/140x210/7C3E2F/FFFFFF?text=${encodeURIComponent(b.title)}'">
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <span class="font-ui" style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); letter-spacing: 0.05em; font-weight: 600;">Reseña literaria</span>
+                        <h2 class="font-title" style="font-size: 1.8rem; margin: 0.3rem 0; line-height: 1.2;">${b.title}</h2>
+                        <p class="font-ui" style="color: var(--text-muted); font-size: 1.05rem;">Por <strong>${b.author}</strong></p>
+                        <div style="margin-top: 0.75rem;">${renderStars(b.rating)}</div>
+                    </div>
+                </div>
+
+                <div class="spec-grid">
+                    <div><strong>Editorial:</strong><br>${b.publisher}</div>
+                    <div><strong>Páginas:</strong><br>${b.pages}</div>
+                    <div><strong>Año original:</strong><br>${b.year}</div>
+                    <div><strong>Leído el:</strong><br>${b.dateRead || 'En curso'}</div>
+                </div>
+
+                <div style="font-size: 1.05rem; line-height: 1.8;">
+                    <p style="margin-bottom: 1.2rem;">
+                        ${b.title === 'La carretera' 
+                            ? 'Una experiencia sobrecogedora y ascética. Cormac McCarthy despoja la narrativa de cualquier artificio innecesario para narrar el peregrinaje de un padre y su hijo por una tierra calcinada por una catástrofe sin nombre.' 
+                            : b.title === '1984'
+                            ? 'Pocas novelas del siglo XX conservan una vigencia tan abrasadora. Orwell no construyó una simple advertencia política, sino un tratado psicológico demoledor sobre el lenguaje, la memoria y el sometimiento absoluto del individuo.'
+                            : 'Un análisis profundo de la condición humana, donde los personajes se ven confrontados a dilemas éticos y existenciales que trascienden el tiempo. La prosa despliega una tensión constante y una atmósfera inolvidable.'}
+                    </p>
+
+                    <blockquote class="review-quote">
+                        "${b.title === 'La carretera'
+                            ? 'Sabía que el niño era su garantía. Si él no era la palabra de Dios, Dios no había hablado nunca.'
+                            : b.title === '1984'
+                            ? 'La libertad es proclamar que dos y dos son cuatro. Si se concede esto, todo lo demás vendrá por sí solo.'
+                            : 'Hay libros que se leen; otros, los más raros, nos leen a nosotros con una claridad implacable.'}"
+                        <footer style="margin-top: 0.5rem; font-size: 0.85rem; font-family: var(--font-ui); color: var(--accent);">— Pasaje destacado (pág. ${b.pages !== 'N/A' ? Math.floor(parseInt(b.pages)/2) : 42})</footer>
+                    </blockquote>
+
+                    <p style="margin-bottom: 1.2rem;">
+                        El ritmo narrativo sostiene el peso temático con maestría. Cada capítulo funciona como una pieza de relojería, empujando al lector hacia una conclusión tan desgarradora como necesaria.
+                    </p>
+
+                    <details class="spoiler-box">
+                        <summary>⚠️ Reflexión sobre el Desenlace (Contiene Spoilers)</summary>
+                        <p style="margin-top: 0.75rem; color: #443;">
+                            El giro final confirma la tesis central de la obra: incluso en el vacío más absoluto, la pequeña llama de la memoria y la decencia moral sobrevive como acto supremo de resistencia.
+                        </p>
+                    </details>
+                </div>
+            `;
+            document.getElementById('reviewModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('reviewModal').style.display = 'none';
+        }
+
+        // Init
+        renderBooks(books);
+    </script>
+</body>
+</html>

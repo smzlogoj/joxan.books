@@ -1,0 +1,23 @@
+---
+interface Props {
+  rating: number;
+  showText?: boolean;
+}
+
+const { rating, showText = false } = Astro.props;
+const fullStars = Math.floor(rating);
+const emptyStars = Math.max(0, 5 - fullStars);
+---
+
+<div class="inline-flex items-center gap-1.5 text-xs font-semibold" title={`${rating} de 5 estrellas`}>
+  {rating > 0 ? (
+    <>
+      <span class="inline-flex tracking-tighter text-blue-600 font-serif">
+        {"★".repeat(fullStars)}{"☆".repeat(emptyStars)}
+      </span>
+      {showText && <span class="text-slate-500 font-mono text-[11px]">{rating.toFixed(1)}</span>}
+    </>
+  ) : (
+    <span class="text-slate-400 font-normal italic text-[11px]">Sin valorar</span>
+  )}
+</div>

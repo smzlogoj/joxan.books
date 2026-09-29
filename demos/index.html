@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Prototipos de Diseño · Web de Libros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0B0E14;
+            --surface: #141824;
+            --border: #23293D;
+            --text: #F3F4F6;
+            --muted: #94A3B8;
+            --accent: #38BDF8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 3rem 1.5rem 5rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+        p.subtitle {
+            color: var(--muted);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .demo-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .demo-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+        .demo-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .preview-1 { background: linear-gradient(135deg, #FAF6F0 0%, #E8E0D7 100%); color: #2D2522; }
+        .preview-2 { background: linear-gradient(135deg, #F8F9FA 0%, #E2E8F0 100%); color: #0F172A; }
+        .preview-3 { background: linear-gradient(135deg, #0E1015 0%, #1E222D 100%); color: #EDEDED; }
+
+        .mockup-book {
+            width: 100px;
+            height: 145px;
+            border-radius: 6px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .demo-info {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .demo-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+        .tag-1 { color: #C07028; }
+        .tag-2 { color: #2563EB; }
+        .tag-3 { color: #E5A84B; }
+
+        .demo-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #FFFFFF;
+        }
+        .demo-desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .features-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #CBD5E1;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .features-list li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .open-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: #1E293B;
+            border: 1px solid var(--border);
+            color: #FFF;
+            padding: 0.7rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .demo-card:hover .open-btn {
+            background: var(--accent);
+            color: #0B0E14;
+            border-color: var(--accent);
+        }
+
+        .bottom-banner {
+            background: rgba(20, 24, 36, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+        .bottom-banner strong { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="badge">Prototipos de Diseño Interactivos</span>
+            <h1>Elige el Estilo para tu Web de Libros</h1>
+            <p class="subtitle">Tres propuestas visuales completas creadas con tus <strong>17 libros reales de Goodreads</strong>, portadas automáticas y ficha de reseña.</p>
+        </header>
+
+        <div class="cards-grid">
+            <!-- Demo 1 -->
+            <a href="1-editorial-clasico.html" class="demo-card">
+                <div class="demo-preview preview-1">
+                    <div class="mockup-book" style="background: #8E3B27; color: white;">
+                        <span style="font-family: serif; font-size: 0.85rem;">Ex Libris</span>
+                        <span style="font-size: 0.65rem; opacity: 0.8; margin-top: 0.2rem;">Papel & Tinta</span>
+                    </div>
+                </div>
+                <div class="demo-info">
+                    <span class="demo-tag tag-1">Propuesta 01</span>
+                    <h2 class="demo-title">Editorial Clásico / Librería Cálida</h2>
+                    <p class="demo-desc">Inspirado en bibliotecas personales clásicas y suplementos culturales. Tonos crema, burdeos y tipografía serif noble con sombras táctiles de libro físico.</p>
+                    <ul class="features-list">
+                        <li>Fondo pergamino cálido `#FAF6F0`</li>
+                        <li>Tipografía clásica Cinzel + Lora</li>
+                        <li>Sombra física y tacto de lomo de libro</li>
+                        <li>Modal de lectura tipo artículo de prensa</li>
+                    </ul>
+                    <div class="open-btn">Explorar Prototipo 1 &rarr;</div>
+                </div>
+            </a>
+
+            <!-- Demo 2 -->
+            <a href="2-minimalista-nordico.html" class="demo-card">
+                <div class="demo-preview preview-2">
+                    <div class="mockup-book" style="background: #0F172A; color: white;">
+                        <span style="font-size: 0.8rem; font-weight: 800;">Studio</span>
+                        <span style="font-size: 0.65rem; color: #38BDF8; margin-top: 0.2rem;">Clean UI</span>
+                    </div>
+                </div>
+                <div class="demo-info">
+                    <span class="demo-tag tag-2">Propuesta 02</span>
+                    <h2 class="demo-title">Minimalista Nórdico / Clean Studio</h2>
+                    <p class="demo-desc">Estilo contemporáneo inspirado en plataformas como Substack, Readwise o publicaciones de diseño suizo. Espacio generoso, tarjetas limpias y cajón lateral.</p>
+                    <ul class="features-list">
+                        <li>Fondo ultra limpio y blanco estructurado</li>
+                        <li>Tipografía sans-serif geométrica moderna</li>
+                        <li>Cajón lateral fluido (Drawer) para reseñas</li>
+                        <li>Sensación ágil de aplicación web moderna</li>
+                    </ul>
+                    <div class="open-btn">Explorar Prototipo 2 &rarr;</div>
+                </div>
+            </a>
+
+            <!-- Demo 3 -->
+            <a href="3-nocturno-elegante.html" class="demo-card">
+                <div class="demo-preview preview-3">
+                    <div class="mockup-book" style="background: #161922; border: 1px solid #E5A84B; color: #E5A84B;">
+                        <span style="font-family: serif; font-size: 0.85rem;">Nocturne</span>
+                        <span style="font-size: 0.65rem; color: #A0A0A0; margin-top: 0.2rem;">Obsidian</span>
+                    </div>
+                </div>
+                <div class="demo-info">
+                    <span class="demo-tag tag-3">Propuesta 03</span>
+                    <h2 class="demo-title">Nocturno Elegante / Dark Obsidian</h2>
+                    <p class="demo-desc">Diseñado para la lectura relajada de noche. Fondos grafito profundo con acentos dorados ámbar, efecto de iluminación sutil al pasar el ratón y estética premium.</p>
+                    <ul class="features-list">
+                        <li>Dark mode nativo descansado para la vista</li>
+                        <li>Acentos dorados ámbar y resplandor al hover</li>
+                        <li>Estrellas doradas y ambientación tipo club</li>
+                        <li>Alta inmersión en pantallas OLED y móviles</li>
+                    </ul>
+                    <div class="open-btn">Explorar Prototipo 3 &rarr;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="bottom-banner">
+            <div>
+                <strong>💡 Nota sobre los prototipos:</strong> En cualquiera de las 3 demos puedes hacer clic en cualquier libro (ej. <em>La carretera</em>, <em>1984</em> o <em>Al este del Edén</em>) para ver la ficha de reseña, filtrar por estados y probar el buscador en tiempo real.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
